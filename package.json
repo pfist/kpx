@@ -1,0 +1,28 @@
+{
+  "name": "kpx",
+  "version": "0.1.0",
+  "description": "The archetype for my Discord bots",
+  "homepage": "https://github.com/polymoon/kpx",
+  "bugs": "https://github.com/polymoon/kpx/issues",
+  "repository": "polymoon/kpx",
+  "license": "MIT",
+  "author": "Nick Pfisterer <nick@polymoon.net>",
+  "engines": {
+    "node": "8.11.x"
+  },
+  "main": "bot.js",
+  "scripts": {},
+  "dependencies": {
+    "commander": "^2.15.1",
+    "discord-akairo": "^7.5.4",
+    "discord.js": "^11.3.2",
+    "esm": "^3.0.20",
+    "lloogg": "^0.2.0",
+    "luxon": "^1.0.0",
+    "pretty-ms": "^3.1.0"
+  },
+  "devDependencies": {},
+  "esm": {
+    "mode": "auto"
+  }
+}
