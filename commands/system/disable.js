@@ -5,6 +5,7 @@ class DisableCommand extends Command {
     super('disable', {
       aliases: ['disable'],
       category: 'System',
+      description: 'Disable a command',
       userPermissions: ['BAN_MEMBERS'],
       args: [
         {

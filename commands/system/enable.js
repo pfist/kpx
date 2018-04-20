@@ -5,6 +5,7 @@ class EnableCommand extends Command {
     super('enable', {
       aliases: ['enable'],
       category: 'System',
+      description: 'Enable a command',
       userPermissions: ['BAN_MEMBERS'],
       args: [
         {
