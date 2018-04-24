@@ -3,7 +3,7 @@ import cli from 'commander'
 import config from './bot.config.js'
 import meta from './package.json'
 
-// CLI for logging in on your local machine
+// CLI for local development
 cli
   .version(meta.version)
   .option('-t, --token <token>', 'Bot token')
