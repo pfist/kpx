@@ -5,7 +5,10 @@ class RebootCommand extends Command {
     super('reboot', {
       aliases: ['reboot'],
       category: 'System',
-      description: 'Shut down and restart the bot',
+      description: {
+        content: 'Shut down and restart the bot',
+        usage: '!reboot'
+      },
       userPermissions: ['BAN_MEMBERS']
     })
   }

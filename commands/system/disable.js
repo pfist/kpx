@@ -5,12 +5,16 @@ class DisableCommand extends Command {
     super('disable', {
       aliases: ['disable'],
       category: 'System',
-      description: 'Disable a command',
+      description: {
+        content: 'Disable a command',
+        usage: '!disable <command>'
+      },
       userPermissions: ['BAN_MEMBERS'],
       args: [
         {
           id: 'command',
           type: 'command',
+          description: 'The command to disable',
           prompt: {
             start: 'Which command would you like me to disable?',
             retry: message => `${message.content} is not a valid command. Please try again.`

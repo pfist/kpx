@@ -6,7 +6,10 @@ class UptimeCommand extends Command {
     super('uptime', {
       aliases: ['uptime'],
       category: 'System',
-      description: 'Get the amount of time since the bot last logged in',
+      description: {
+        content: 'Check how long the bot has been online',
+        usage: '!uptime'
+      },
       userPermissions: ['VIEW_CHANNEL']
     })
   }

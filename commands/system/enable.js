@@ -5,12 +5,16 @@ class EnableCommand extends Command {
     super('enable', {
       aliases: ['enable'],
       category: 'System',
-      description: 'Enable a command',
+      description: {
+        content: 'Enable a command',
+        usage: '!enable <command>'
+      },
       userPermissions: ['BAN_MEMBERS'],
       args: [
         {
           id: 'command',
           type: 'command',
+          description: 'The command to enable',
           prompt: {
             start: 'Which command would you like me to enable?',
             retry: message => `${message.content} is not a valid command. Please try again.`
