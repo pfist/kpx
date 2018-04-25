@@ -32,11 +32,6 @@ class HelpCommand extends Command {
     if (!command) {
       const embed = this.client.util.embed()
         .setColor(1406667)
-        .setDescription([
-          `Here is a list of available commands.`,
-          `You can say \`${this.client.options.prefix}<command>\` or \`@${this.client.user.tag} <command>\` to give me a command.`,
-          '\u200B'
-        ])
 
       for (const category of this.handler.categories.values()) {
         const availableCommands = await category.filter(command => member.permissions.has(command.userPermissions))
@@ -54,7 +49,7 @@ class HelpCommand extends Command {
         await message.reply('I sent you a direct message with the information you requested.')
       }
 
-      return message.author.send({ embed })
+      return message.author.send(`Here is a list of available commands. Say \`${this.client.options.prefix}<command>\` or \`@${this.client.user.username} <command>\` to give me a command.`, { embed })
     }
 
     // !help [command] - Send instructions for a command if the member can use it
@@ -65,7 +60,7 @@ class HelpCommand extends Command {
         .setDescription([command.description.content, '\u200B'])
         .addField('Aliases', [command.aliases.toString().split(',').join(', '), '\u200B'], true)
         .addField('Category', [command.category, '\u200B'], true)
-        .addField('Usage', [command.description.usage, '\u200B'])
+        .addField('Usage', [`\`\`\`${command.description.usage}\`\`\``, '\u200B'])
 
       const argsField = command.args.length ? command.args.map(arg => `**${arg.id}** - ${arg.description}`) : 'No arguments'
 

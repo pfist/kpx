@@ -35,9 +35,8 @@ class UserInfoCommand extends Command {
     const embed = this.client.util.embed()
 
     embed.setColor(1406667)
-    embed.setAuthor(member.displayName, member.user.displayAvatarURL)
     embed.setThumbnail(member.user.displayAvatarURL)
-    embed.setDescription([member.user.tag, '\u200B'])
+    embed.addField('Username', [member.user.tag, '\u200B'], true)
     embed.addField('ID', [member.id, '\u200B'], true)
     embed.addField('Status', [member.presence.status, '\u200B'], true)
     embed.addField('Joined Discord', [discordJoinDate.toLocaleString(DateTime.DATETIME_FULL), '\u200B'], true)
@@ -45,7 +44,7 @@ class UserInfoCommand extends Command {
     embed.addField('Highest Role', member.highestRole.name, true)
     embed.addField('User Type', member.user.bot ? 'Bot' : 'Human', true)
 
-    return message.util.send({ embed })
+    return message.util.send(`Here's the information I have on ${member.displayName}:`, { embed })
   }
 }
 
