@@ -6,7 +6,7 @@ class DisableCommand extends Command {
       aliases: ['disable'],
       category: 'System',
       description: {
-        content: 'Disable a command',
+        content: 'Disable a command.',
         usage: '!disable <command>'
       },
       userPermissions: ['BAN_MEMBERS'],

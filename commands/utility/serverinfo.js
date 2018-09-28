@@ -4,11 +4,11 @@ import { DateTime } from 'luxon'
 class ServerInfoCommand extends Command {
   constructor () {
     super('serverinfo', {
-      aliases: ['serverinfo', 'server', 'guildinfo', 'guild'],
+      aliases: ['serverinfo', 'server'],
       category: 'Utility',
       description: {
         content: 'Get information about the Discord server.',
-        usage: '!serverinfo'
+        usage: '!server'
       },
       userPermissions: ['VIEW_CHANNEL']
     })
@@ -22,7 +22,7 @@ class ServerInfoCommand extends Command {
     embed.setColor(1406667)
     embed.setAuthor(guild.name, guild.iconURL)
     embed.setThumbnail(guild.iconURL)
-    embed.setDescription(['Enter a guild description here', '\u200B'])
+    embed.setDescription(['Enter a server description here', '\u200B'])
     embed.addField('ID', [guild.id, '\u200B'], true)
     embed.addField('Owner', [guild.owner.user.tag, '\u200B'], true)
     embed.addField('Members', [`${guild.memberCount} (${guild.members.filter(member => member.presence.status === 'online').size} online)`, '\u200B'], true)

@@ -6,7 +6,7 @@ class PingCommand extends Command {
       aliases: ['ping'],
       category: 'System',
       description: {
-        content: `Check the bot's latency`,
+        content: `Check the bot's latency.`,
         usage: '!ping'
       },
       userPermissions: ['VIEW_CHANNEL']

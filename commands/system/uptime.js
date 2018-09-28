@@ -7,7 +7,7 @@ class UptimeCommand extends Command {
       aliases: ['uptime'],
       category: 'System',
       description: {
-        content: 'Check how long the bot has been online',
+        content: 'Get the amount of time since the bot last logged in.',
         usage: '!uptime'
       },
       userPermissions: ['VIEW_CHANNEL']

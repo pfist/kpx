@@ -8,7 +8,7 @@ class AboutCommand extends Command {
       aliases: ['about'],
       category: 'System',
       description: {
-        content: 'Learn more about the bot',
+        content: 'Get information about the bot.',
         usage: '!about'
       },
       userPermissions: ['VIEW_CHANNEL']

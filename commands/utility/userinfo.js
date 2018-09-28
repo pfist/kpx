@@ -4,11 +4,11 @@ import { DateTime } from 'luxon'
 class UserInfoCommand extends Command {
   constructor () {
     super('userinfo', {
-      aliases: ['userinfo', 'user', 'whois', 'lookup'],
+      aliases: ['userinfo', 'user'],
       category: 'Utility',
       description: {
         content: 'Get information about a user, or yourself if no argument is given.',
-        usage: '!userinfo [user]'
+        usage: '!user [@user or ID]'
       },
       userPermissions: ['VIEW_CHANNEL'],
       args: [

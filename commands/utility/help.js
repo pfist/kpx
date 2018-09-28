@@ -6,7 +6,7 @@ class HelpCommand extends Command {
       aliases: ['help', 'halp'],
       category: 'Utility',
       description: {
-        content: 'Learn how to give the bot commands',
+        content: 'Get a list of available commands, or detailed information about a specific command.',
         usage: '!help [command]'
       },
       userPermissions: ['VIEW_CHANNEL'],

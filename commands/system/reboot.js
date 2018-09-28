@@ -6,7 +6,7 @@ class RebootCommand extends Command {
       aliases: ['reboot'],
       category: 'System',
       description: {
-        content: 'Shut down and restart the bot',
+        content: 'Shut down and restart the bot.',
         usage: '!reboot'
       },
       userPermissions: ['BAN_MEMBERS']

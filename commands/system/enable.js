@@ -6,7 +6,7 @@ class EnableCommand extends Command {
       aliases: ['enable'],
       category: 'System',
       description: {
-        content: 'Enable a command',
+        content: 'Enable a command.',
         usage: '!enable <command>'
       },
       userPermissions: ['BAN_MEMBERS'],
