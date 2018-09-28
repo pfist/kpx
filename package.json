@@ -13,13 +13,13 @@
   "main": "bot.js",
   "scripts": {},
   "dependencies": {
-    "commander": "^2.15.1",
-    "discord-akairo": "^7.5.4",
-    "discord.js": "^11.3.2",
-    "esm": "^3.0.20",
+    "commander": "^2.18.0",
+    "discord-akairo": "^7.5.5",
+    "discord.js": "^11.4.2",
+    "esm": "^3.0.84",
     "lloogg": "^0.2.0",
-    "luxon": "^1.0.0",
-    "pretty-ms": "^3.1.0"
+    "luxon": "^1.3.3",
+    "pretty-ms": "^4.0.0"
   },
   "devDependencies": {},
   "esm": {
