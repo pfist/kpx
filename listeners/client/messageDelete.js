@@ -13,7 +13,7 @@ class MessageDeleteListener extends Listener {
     const channel = await this.client.channels.find(channel => channel.name === config.messageLogChannel)
 
     const embed = this.client.util.embed()
-    .setTitle(':x: MESSAGED DELETED')
+    .setTitle(':x: MESSAGE DELETED')
     .setDescription(`<@${message.author.id}> deleted a message in ${message.channel}.`)
     .addField('Deleted Message', message.content)
     .setFooter(`Message ID: ${message.id}`)
