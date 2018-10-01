@@ -15,11 +15,12 @@ class MessageUpdateListener extends Listener {
       const channel = await this.client.channels.find(channel => channel.name === config.messageLogChannel)
 
       const embed = this.client.util.embed()
+      .setColor([255, 169, 77])
       .setTitle(':pencil: MESSAGE EDITED')
       .setDescription(`<@${oldMessage.author.id}> edited a message in ${oldMessage.channel}.`)
       .addField('Old Message', oldMessage.content)
       .addField('New Message', newMessage.content)
-      .setFooter(`Message ID: ${newMessage.id}`)
+      .setTimestamp()
 
       return channel.send(embed)
     }
