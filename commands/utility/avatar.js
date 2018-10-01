@@ -27,9 +27,26 @@ class AvatarCommand extends Command {
   }
 
   async exec (message, { user }) {
-    message.util.send(`Here is the avatar for ${user.username}:`, {
-      files: [user.displayAvatarURL.split('?')[0]]
-    })
+    const avatar = await user.displayAvatarURL.split('?')[0]
+
+    // Checking the author
+    if (user.id === message.author.id) {
+      return message.reply(`Here is your avatar:`, {
+        files: [avatar]
+      })
+    }
+
+    // Checking the bot
+    if (user.id === this.client.user.id) {
+      return message.util.send(`Here is my avatar:`, {
+        files: [avatar]
+      })
+    } else {
+      // Checking anyone else
+      return message.util.send(`Here is the avatar for **${user.username}**:`, {
+        files: [avatar]
+      })
+    }
   }
 }
 
