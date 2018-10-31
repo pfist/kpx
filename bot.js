@@ -1,11 +1,11 @@
 import { AkairoClient } from 'discord-akairo'
 import cli from 'commander'
 import config from './bot.config.js'
-import meta from './package.json'
+import pkg from './package.json'
 
 // CLI for local development
 cli
-  .version(meta.version)
+  .version(pkg.version)
   .option('-t, --token <token>', 'Bot token')
   .option('-o, --owner <id>', 'Owner ID')
   .parse(process.argv)
