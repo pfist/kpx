@@ -10,6 +10,7 @@ class ServerInfoCommand extends Command {
         content: 'Get information about the Discord server.',
         usage: '!server'
       },
+      channelRestriction: 'guild',
       userPermissions: ['VIEW_CHANNEL']
     })
   }

@@ -9,6 +9,7 @@ class RebootCommand extends Command {
         content: 'Shut down and restart the bot.',
         usage: '!reboot'
       },
+      channelRestriction: 'guild',
       userPermissions: ['BAN_MEMBERS']
     })
   }

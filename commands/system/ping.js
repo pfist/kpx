@@ -9,6 +9,7 @@ class PingCommand extends Command {
         content: `Check the bot's latency.`,
         usage: '!ping'
       },
+      channelRestriction: 'guild',
       userPermissions: ['VIEW_CHANNEL']
     })
   }

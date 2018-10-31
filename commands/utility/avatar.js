@@ -9,6 +9,7 @@ class AvatarCommand extends Command {
         content: `Get the large version of a user's avatar, or yourself if no argument is given.`,
         usage: '!avatar [user]'
       },
+      channelRestriction: 'guild',
       userPermissions: ['VIEW_CHANNEL'],
       args: [
         {

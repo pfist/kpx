@@ -10,6 +10,7 @@ class UserInfoCommand extends Command {
         content: 'Get information about a user, or yourself if no argument is given.',
         usage: '!user [@user or ID]'
       },
+      channelRestriction: 'guild',
       userPermissions: ['VIEW_CHANNEL'],
       args: [
         {

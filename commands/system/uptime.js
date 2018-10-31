@@ -10,6 +10,7 @@ class UptimeCommand extends Command {
         content: 'Get the amount of time since the bot last logged in.',
         usage: '!uptime'
       },
+      channelRestriction: 'guild',
       userPermissions: ['VIEW_CHANNEL']
     })
   }

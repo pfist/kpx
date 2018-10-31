@@ -9,6 +9,7 @@ class DisableCommand extends Command {
         content: 'Disable a command.',
         usage: '!disable <command>'
       },
+      channelRestriction: 'guild',
       userPermissions: ['BAN_MEMBERS'],
       args: [
         {

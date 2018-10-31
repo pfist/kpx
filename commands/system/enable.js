@@ -9,6 +9,7 @@ class EnableCommand extends Command {
         content: 'Enable a command.',
         usage: '!enable <command>'
       },
+      channelRestriction: 'guild',
       userPermissions: ['BAN_MEMBERS'],
       args: [
         {
