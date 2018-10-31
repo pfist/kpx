@@ -3,7 +3,7 @@ import cli from 'commander'
 import config from './bot.config.js'
 import pkg from './package.json'
 
-// CLI for local development
+// CLI
 cli
   .version(pkg.version)
   .option('-t, --token <token>', 'Bot token')
