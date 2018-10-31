@@ -15,7 +15,7 @@ class MessageUpdateListener extends Listener {
       const channel = await this.client.channels.find(channel => channel.name === config.messageLogChannel)
 
       const embed = this.client.util.embed()
-      .setColor([255, 169, 77])
+      .setColor(config.colors.orange)
       .setTitle(':pencil: MESSAGE EDITED')
       .setDescription(`<@${oldMessage.author.id}> edited a message in ${oldMessage.channel}.`)
       .addField('Old Message', oldMessage.content)
