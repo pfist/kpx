@@ -9,6 +9,7 @@ class HelpCommand extends Command {
         content: 'Get a list of available commands, or detailed information about a specific command.',
         usage: '!help [command]'
       },
+      channelRestriction: 'guild',
       userPermissions: ['VIEW_CHANNEL'],
       args: [
         {
