@@ -1,14 +1,7 @@
 export default {
-  // BASE
-
   // Default command prefix
-  commandPrefix: '!',
-  // Allow mention as a prefix
-  allowMention: true,
-  // Handle edited messages
-  handleEdits: true,
-
-  // EMBED COLORS
+  commandtPrefix: '!',
+  // Embed colors
   colors: {
     red: [255, 107, 107],
     orange: [255, 169, 77],
@@ -18,14 +11,9 @@ export default {
     purple: [229, 153, 247]
   },
 
-  // LOGS
-
-  // Moderation log
+  // Logs
   modLogChannel: 'moderation-log',
-  // Message log
   messageLogChannel: 'message-log',
-  // Server activity log
   serverLogChannel: 'server-log',
-  // Suspicious activity alerts
   alertsChannel: 'alerts'
 }
