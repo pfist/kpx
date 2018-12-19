@@ -10,7 +10,8 @@ class PingCommand extends Command {
         usage: '!ping'
       },
       channelRestriction: 'guild',
-      userPermissions: ['VIEW_CHANNEL']
+      userPermissions: ['VIEW_CHANNEL'],
+      protected: true
     })
   }
 
