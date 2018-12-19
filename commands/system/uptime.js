@@ -11,7 +11,8 @@ class UptimeCommand extends Command {
         usage: '!uptime'
       },
       channelRestriction: 'guild',
-      userPermissions: ['VIEW_CHANNEL']
+      userPermissions: ['MANAGE_GUILD'],
+      protected: true
     })
   }
 
