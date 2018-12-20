@@ -1,6 +1,6 @@
 export default {
   // Default command prefix
-  commandtPrefix: '!',
+  commandPrefix: '!',
   // Embed colors
   colors: {
     red: [255, 107, 107],
