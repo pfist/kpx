@@ -16,9 +16,13 @@ class PingCommand extends Command {
   }
 
   async exec (message) {
-    const reply = await message.util.send('Pong!')
+    // Initial response
+    const reply = await message.util.send(':ping_pong: Pong!')
+    // Time when the initial response reached the user
     const replyTime = await reply.editedTimestamp || reply.createdTimestamp
+    // Time when the original message was sent by the user
     const messageTime = await message.editedTimestamp || message.createdTimestamp
+    // Final response with calculated latency in milliseconds
     return message.util.send(`:ping_pong: Pong! I took **${replyTime - messageTime}ms** to respond.`)
   }
 }
