@@ -10,15 +10,16 @@ class EnableCommand extends Command {
         usage: '!enable <command>'
       },
       channelRestriction: 'guild',
-      userPermissions: ['BAN_MEMBERS'],
+      userPermissions: ['MANAGE_GUILD'],
+      protected: true,
       args: [
         {
           id: 'command',
-          type: 'command',
+          type: 'commandAlias',
           description: 'The command to enable',
           prompt: {
-            start: 'Which command would you like me to enable?',
-            retry: message => `${message.content} is not a valid command. Please try again.`
+            start: 'Which command do you want to enable?',
+            retry: `That is not a valid command. Please try again.`
           }
         }
       ]
@@ -29,10 +30,10 @@ class EnableCommand extends Command {
     const command = await this.handler.modules.get(args.command.id)
 
     if (command.enabled) {
-      return message.util.send(`The \`${args.command}\` command is already enabled.`)
+      return message.util.send(`:information_source: The \`${args.command}\` command is already enabled.`)
     } else {
       await command.enable()
-      return message.util.send(`The \`${args.command}\` command has been enabled.`)
+      return message.util.send(`:white_check_mark: The \`${args.command}\` command is now enabled.`)
     }
   }
 }
