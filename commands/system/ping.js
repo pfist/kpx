@@ -19,7 +19,7 @@ class PingCommand extends Command {
     const reply = await message.util.send('Pong!')
     const replyTime = await reply.editedTimestamp || reply.createdTimestamp
     const messageTime = await message.editedTimestamp || message.createdTimestamp
-    return message.util.send(`Pong! I took ${replyTime - messageTime}ms to respond.`)
+    return message.util.send(`:ping_pong: Pong! I took **${replyTime - messageTime}ms** to respond.`)
   }
 }
 
