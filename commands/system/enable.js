@@ -27,14 +27,19 @@ class EnableCommand extends Command {
   }
 
   async exec (message, args) {
+    // Get command object
     const command = await this.handler.modules.get(args.command.id)
 
+    // Is the command already enabled?
     if (command.enabled) {
-      return message.util.send(`:information_source: The \`${args.command}\` command is already enabled.`)
-    } else {
-      await command.enable()
-      return message.util.send(`:white_check_mark: The \`${args.command}\` command is now enabled.`)
+      return message.util.send(`:information_source: The \`${command.id}\` command is already enabled.`)
     }
+
+    // Enable command
+    await command.enable()
+
+    // Send response
+    return message.util.send(`:white_check_mark: The \`${command.id}\` command is now **enabled**.`)
   }
 }
 
