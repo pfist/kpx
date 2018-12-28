@@ -10,13 +10,17 @@ class RebootCommand extends Command {
         usage: '!reboot'
       },
       channelRestriction: 'guild',
-      userPermissions: ['BAN_MEMBERS']
+      userPermissions: ['MANAGE_GUILD']
     })
   }
 
   async exec (message) {
-    await message.util.send('Shutting down...')
-    process.exit(1)
+    // Send response
+    await message.util.send('Rebooting...')
+
+    // Destroy the client
+    // Assumes an environment where the bot will automatically restart on shut down
+    this.client.destroy()
   }
 }
 
