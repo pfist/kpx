@@ -27,18 +27,24 @@ class DisableCommand extends Command {
   }
 
   async exec (message, args) {
+    // Get command object
     const command = await this.handler.modules.get(args.command.id)
 
+    // Is the command protected?
     if (command.protected) {
       return message.util.send(`:warning: That command is **protected** and can't be disabled.`)
     }
 
+    // Is the command already disabled?
     if (!command.enabled) {
       return message.util.send(`:information_source: The \`${args.command}\` command is already disabled.`)
-    } else {
-      await command.disable()
-      return message.util.send(`:no_entry_sign: The \`${args.command}\` command is now **disabled.**`)
     }
+
+    // Disable command
+    await command.disable()
+
+    // Send response
+    return message.util.send(`:no_entry_sign: The \`${args.command}\` command is now **disabled.**`)
   }
 }
 
