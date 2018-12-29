@@ -1,4 +1,5 @@
 import { Command } from 'discord-akairo'
+import config from '../../bot.config.js'
 
 class HelpCommand extends Command {
   constructor () {
@@ -6,11 +7,10 @@ class HelpCommand extends Command {
       aliases: ['help', 'halp'],
       category: 'Utility',
       description: {
-        content: 'Get a list of available commands, or detailed information about a specific command.',
+        content: 'Get a list of commands for the bot.',
         usage: '!help [command]'
       },
-      channelRestriction: 'guild',
-      userPermissions: ['VIEW_CHANNEL'],
+      userPermissions: ['SEND_MESSAGES'],
       args: [
         {
           id: 'command',
@@ -18,7 +18,7 @@ class HelpCommand extends Command {
           description: 'The command you want to learn more about',
           optional: true,
           prompt: {
-            retry: message => `${message.content} is not a valid command. Please try again.`,
+            retry:'That is not a valid command. Please try again.',
             optional: true
           }
         }
@@ -27,50 +27,62 @@ class HelpCommand extends Command {
   }
 
   async exec (message, { command }) {
+    // Get the user as a guild member
     const member = await this.client.guilds.first().member(message.author)
 
-    // !help - Send a list of commands the member can use
+    // Initialize embed
+    const embed = this.client.util.embed().setColor(config.colors.blue)
+
+    // !help - List all commands available to the user
     if (!command) {
-      const embed = this.client.util.embed()
-        .setColor(1406667)
+      // Get command categories
+      const categories = this.handler.categories.values()
 
-      for (const category of this.handler.categories.values()) {
-        const availableCommands = await category.filter(command => member.permissions.has(command.userPermissions))
+      // Loop through categories
+      for (const category of categories) {
+        // Filter category for available commands
+        const availableCommands = await category.filter(cmd => member.permissions.has(cmd.userPermissions))
 
+        // Only add category to embed if commands are available
         if (availableCommands.size !== 0) {
-          const commandList = await availableCommands.map(command => `**${command.aliases[0]}** - ${command.description.content}`).join('\n')
+          // Generate list of available commands for embed
+          const commandList = await availableCommands.map(cmd => `**${this.client.options.prefix}${cmd.aliases[0]}** - ${cmd.description.content}`).join('\n')
 
-          embed.addField(`${category.id} Commands`, [commandList, '\u200B'])
+          // Add list to embed
+          embed.addField(`❯ ${category.id} Commands`, commandList)
         }
       }
 
+      // Add additional tips to embed footer
       embed.setFooter('Say !help [command] to learn more about a command. Example: !help ping')
 
+      // Only send this embed via DM
       if (message.channel.type !== 'dm') {
-        await message.reply('I sent you a direct message with the information you requested.')
+        message.reply('I sent you a DM with more information.')
       }
 
-      return message.author.send(`Here is a list of available commands. Say \`${this.client.options.prefix}<command>\` or \`@${this.client.user.username} <command>\` to give me a command.`, { embed })
+      // Send the embed
+      return message.author.send('Here is a list of commands that are available:', { embed })
     }
 
-    // !help [command] - Send instructions for a command if the member can use it
+    // !help [command] - Give detailed instructions for a command
     if (member.permissions.has(command.userPermissions)) {
-      const embed = this.client.util.embed()
-        .setColor(1406667)
-        .setTitle(command.aliases[0].toUpperCase())
-        .setDescription([command.description.content, '\u200B'])
-        .addField('Aliases', [command.aliases.toString().split(',').join(', '), '\u200B'], true)
-        .addField('Category', [command.category, '\u200B'], true)
-        .addField('Usage', [`\`\`\`${command.description.usage}\`\`\``, '\u200B'])
-
+      // Command arguments
       const argsField = command.args.length ? command.args.map(arg => `**${arg.id}** - ${arg.description}`) : 'No arguments'
 
-      embed.addField('Arguments', argsField)
+      // Fill out embed
+      embed
+      .setTitle(`:speech_balloon: ${command.id.toUpperCase()}`)
+      .setDescription(command.description.content)
+      .addField('❯ Usage', `\`\`\`${command.description.usage}\`\`\``)
+      .addField('❯ Arguments', argsField)
 
+      // Only send this embed via DM
       if (message.channel.type !== 'dm') {
-        await message.reply('I sent you a direct message with the information you requested.')
+        message.reply('I sent you a DM with more information.')
       }
 
+      // Send the embed
       return message.author.send({ embed })
     }
   }
