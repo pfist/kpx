@@ -6,7 +6,7 @@ class AboutCommand extends Command {
   constructor () {
     super('about', {
       aliases: ['about'],
-      category: 'System',
+      category: 'Utility',
       description: {
         content: 'Get information about the bot.',
         usage: '!about'
