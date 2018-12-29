@@ -18,7 +18,7 @@
     "discord.js": "^11.4.2",
     "esm": "^3.0.84",
     "lloogg": "^0.2.0",
-    "luxon": "^1.8.2",
+    "luxon": "^1.8.3",
     "pretty-ms": "^4.0.0"
   },
   "devDependencies": {},
