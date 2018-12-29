@@ -13,7 +13,7 @@ class ReadyListener extends Listener {
 
   async exec () {
     // Set activity
-    await this.client.user.setActivity('the server', { type: 'WATCHING' })
+    await this.client.user.setActivity(this.client.guilds.first().name, { type: 'WATCHING' })
 
     // Log connection state
     log.success(`${this.client.user.username} successfully connected to ${this.client.guilds.first().name}. All systems operational.`)
