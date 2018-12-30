@@ -1,6 +1,7 @@
 import { Command } from 'discord-akairo'
 import { DateTime } from 'luxon'
-import meta from '../../package.json'
+import config from '../../bot.config.js'
+import pkg from '../../package.json'
 
 class AboutCommand extends Command {
   constructor () {
@@ -11,22 +12,27 @@ class AboutCommand extends Command {
         content: 'Get information about the bot.',
         usage: '!about'
       },
-      userPermissions: ['VIEW_CHANNEL']
+      userPermissions: ['SEND_MESSAGES']
     })
   }
 
   async exec (message) {
+    // Get avatar
     const avatar = await this.client.user.avatarURL
-    const creationDate = await DateTime.fromISO(this.client.user.createdAt.toISOString())
+    // Human-friendly creation date
+    const birthdate = await DateTime.fromISO(this.client.user.createdAt.toISOString())
+    // Initialize & populate embed
     const embed = this.client.util.embed()
-      .setColor(1406667)
-      .setTitle(`${this.client.user.username} ${meta.version}`)
-      .setURL('https://github.com/polymoon/kpx')
-      .setDescription(`Created on ${creationDate.toLocaleString(DateTime.DATETIME_FULL)}. There is a bunch more I want to put here, but it's not written yet! There should probably be a list of features and a description of what this bot is designed to do.`)
-      .setThumbnail(avatar)
-      .addField('Report A Bug', 'If you encounter a bug or have a suggestion for improving the bot, submit an issue [on GitHub](https://github.com/polymoon/kpx/issues).', true)
-      .addField('Contribute', 'If you want to help develop the bot, please read our [contributing guidelines](https://github.com/polymoon/kpx) to learn how to get started.', true)
+    .setColor(config.colors.blue)
+    .setThumbnail(avatar)
+    .setTitle(`:robot: ${this.client.user.tag}`)
+    .setDescription(`A brief description of this bot and what it does.`)
+    .addField('❯ Birthdate', birthdate.toLocaleString(DateTime.DATETIME_FULL), true)
+    .addField('❯ Version', pkg.version, true)
+    .addField('❯ Bugs & Feedback', `Find a bug? Want to suggest a feature? Submit an issue on [GitHub.](${pkg.bugs})`, true)
+    .addField('❯ How to Contribute', `Interested in helping out? Check out the [contributing guidelines](${pkg.homepage}).`, true)
 
+    // Send the embed
     return message.util.send({ embed })
   }
 }
