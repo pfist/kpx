@@ -18,6 +18,7 @@ class HelpCommand extends Command {
           description: 'The command you want to learn more about',
           optional: true,
           prompt: {
+            start: 'Which command do you need help with?',
             retry:'That is not a valid command. Please try again.',
             optional: true
           }
