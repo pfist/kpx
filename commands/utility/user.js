@@ -49,6 +49,7 @@ class UserInfoCommand extends Command {
     .setThumbnail(avatar)
     // .setAuthor(`${member.user.tag}`, avatar)
     .setDescription(`<@${member.user.id}>`)
+    .addField('❯ ID', member.id, true)
     .addField('❯ Status', status[member.presence.status], true)
     .addField(`❯ Joined Server`, guildJoinDate.toLocaleString(DateTime.DATETIME_MED), true)
     .addField('❯ Joined Discord', discordJoinDate.toLocaleString(DateTime.DATETIME_MED), true)
