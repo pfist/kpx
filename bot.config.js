@@ -1,6 +1,8 @@
 export default {
   // Default command prefix
   commandPrefix: '!',
+  // Server description
+  serverDesc: `Nick's personal test server`,
   // Embed colors
   colors: {
     red: [255, 107, 107],
