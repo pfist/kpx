@@ -26,7 +26,7 @@ class AboutCommand extends Command {
     .setColor(config.colors.blue)
     .setThumbnail(avatar)
     .setDescription(`<@${this.client.user.id}>`)
-    .addField('❯ Birthdate', birthdate.toLocaleString(DateTime.DATETIME_FULL), true)
+    .addField('❯ Birthdate', `${birthdate.toLocaleString(DateTime.DATE_SHORT)} ${birthdate.toLocaleString(DateTime.TIME_SIMPLE)} ${birthdate.offsetNameShort}`, true)
     .addField('❯ Version', pkg.version, true)
     .addField('❯ Bugs & Feedback', `Find a bug? Want to suggest a feature? Submit an issue on [GitHub.](${pkg.bugs})`, true)
     .addField('❯ How to Contribute', `Interested in helping out? Check out the [contributing guidelines](${pkg.homepage}).`, true)
