@@ -46,6 +46,7 @@ class ServerInfoCommand extends Command {
     .addField('❯ Owner', `<@${guild.ownerID}>`, true)
     .addField('❯ Region', guild.region, true)
 
+    // Send the embed
     return message.util.send({ embed })
   }
 }
