@@ -51,8 +51,8 @@ class UserInfoCommand extends Command {
     .setDescription(`<@${member.user.id}>`)
     .addField('❯ ID', member.id, true)
     .addField('❯ Status', status[member.presence.status], true)
-    .addField(`❯ Joined Server`, guildJoinDate.toLocaleString(DateTime.DATETIME_MED), true)
-    .addField('❯ Joined Discord', discordJoinDate.toLocaleString(DateTime.DATETIME_MED), true)
+    .addField(`❯ Joined Server`, `${guildJoinDate.toLocaleString(DateTime.DATE_SHORT)} ${guildJoinDate.toLocaleString(DateTime.TIME_SIMPLE)} ${guildJoinDate.offsetNameShort}`, true)
+    .addField('❯ Joined Discord', `${discordJoinDate.toLocaleString(DateTime.DATE_SHORT)} ${discordJoinDate.toLocaleString(DateTime.TIME_SIMPLE)} ${discordJoinDate.offsetNameShort}`, true)
     .addField('❯ Highest Role', member.highestRole.name, true)
     .addField('❯ User Type', member.user.bot ? 'Bot' : 'Human', true)
 
